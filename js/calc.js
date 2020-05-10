@@ -34,9 +34,12 @@ function getAnswer() {
         return expression.value;
     }
 }
+
 function clear() {
-    var expression = document.getElementsByName("expr")[0];
+    console.log("something");
+    var expression = document.getElementsById("exp")[0];
     expression.value = '';
+    answered = false;
     return expression.value;
 }
 

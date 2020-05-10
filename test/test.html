@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <title>Calculator Tests</title>
+	 
+	  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.10.0.css">
+	  <script src="https://code.jquery.com/qunit/qunit-2.10.0.js"></script>
+	  <script type="text/javascript" src="../js/calc.js"></script>
+	  <script>
+	  	QUnit.test("Append numbers expression", function( assert ) 
+		{
+			var element = document.createElement("td");
+			element.innerText = "2";
+			var operator = document.createElement("td");
+			operator.innerText = "+";
+			assert.equal(document.getElementById("exp").innerHTML, "");
+			assert.equal(append(element), "2");
+			assert.equal(append(element), "22");
+			assert.equal(append(operator), "22+")
+			// assert
+		});
+	  	QUnit.test("Append operators", function( assert ) 
+		{
+			var element = document.createElement("td");
+			element.innerText = "23";
+			append(element)
+			var operator = document.createElement("td");
+			operator.innerText = "+";
+			assert.equal(append(operator), "23+");
+			// assert.equal(append(element), "22");
+		});
+	  	QUnit.test("Evaluate expression", function( assert ) 
+		{
+			var element = document.createElement("td");
+			element.innerText = "21+3*8";
+			append(element);
+			assert.equal(getAnswer(), "45");
+		});
+		QUnit.test("Clear Screen - AC", function( assert ) 
+		{
+			var element = document.createElement("td");
+			element.innerText = "21+3*8";
+			append(element);
+			getAnswer();
+			assert.equal(clear(), "");
+		});
+		QUnit.test("BackSpace - Bk", function( assert ) 
+		{
+			var element = document.createElement("td");
+			element.innerText = "21+3*8-";
+			append(element);
+			assert.equal(back(), "21+3*8");
+		});
+	  </script>
+
+	</head>
+	<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		<div id="ID"></div>
+		<input type="text" class="calculator-screen z-depth-1" id="exp" name="expr" readonly/>
+	</div>
+	</body>
+</html>
