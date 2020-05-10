@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>A stupid calculator</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/calc.css" rel="stylesheet">
+    <script src="js/calc.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="base">
+          <div class="maindisplay">
+            <input type="text" class="calculator-screen z-depth-1" id="exp" name="expr" readonly/>
+            <div class="subdisplay"></div>
+          </div>
+          <div class="keypad">
+            <table style="width: 100%;">
+              <tr>
+                <td class="keys ackey" colspan="3" onclick="clear()">AC</td>
+                <td class="keys opkey" colspan="1" onclick="append(this)">/</td>
+              </tr>
+              <tr>
+                <td class="keys numkey" onclick="append(this)";>7</td>
+                <td class="keys numkey" onclick="append(this)">8</td>
+                <td class="keys numkey" onclick="append(this)">9</td>
+                <td class="keys opkey" onclick="append(this)">*</td>
+              </tr>
+              <tr>
+                <td class="keys numkey" onclick="append(this)">4</td>
+                <td class="keys numkey" onclick="append(this)">5</td>
+                <td class="keys numkey" onclick="append(this)">6</td>
+                <td class="keys opkey" onclick="append(this)">-</td>
+              </tr>
+              <tr>
+                <td class="keys numkey" onclick="append(this)">3</td>
+                <td class="keys numkey" onclick="append(this)">2</td>
+                <td class="keys numkey" onclick="append(this)">1</td>
+                <td class="keys opkey" onclick="append(this)">+</td>
+              </tr>
+              <tr>
+                <td class="keys ackey" onclick="back()">bk</td>
+                <td class="keys numkey" onclick="append(this)">0</td>
+                <td class="keys numkey"></td>
+                <td class="keys equalkey" onclick="getAnswer()">=</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
